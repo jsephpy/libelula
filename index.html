@@ -214,15 +214,24 @@ nav.scrolled { padding: 12px 56px; }
 .drawer-close:hover { background: rgba(196,168,255,0.2); }
 .drawer-close svg { width: 16px; height: 16px; stroke: var(--light); }
 
-.drawer-nav { display: flex; flex-direction: column; gap: 4px; flex: 1; }
+.drawer-nav { display: flex; flex-direction: column; gap: 0; flex: 1; }
 .drawer-nav a {
   color: var(--white);
-  font-size: 1rem; font-weight: 500;
-  text-decoration: none; padding: 14px 16px; border-radius: 12px;
+  font-size: 0.95rem; font-weight: 500;
+  text-decoration: none; padding: 8px 14px; border-radius: 8px;
   transition: background 0.2s, color 0.2s;
-  display: flex; align-items: center; gap: 12px;
+  display: flex; align-items: center; justify-content: space-between;
 }
-.drawer-nav a:hover { background: rgba(196,168,255,0.1); color: var(--white); }
+.drawer-nav a:hover { background: rgba(196,168,255,0.12); color: var(--white); }
+.drawer-nav .drawer-arrow {
+  opacity: 0.5; font-size: 0.85rem; flex-shrink: 0; margin-left: 8px;
+}
+.drawer-nav a.sub-item {
+  font-size: 0.85rem; padding: 6px 14px 6px 24px;
+  color: rgba(196,168,255,0.85); font-weight: 400;
+}
+.drawer-nav a.sub-item:hover { color: var(--white); }
+.drawer-divider { height: 1px; background: rgba(196,168,255,0.1); margin: 6px 0; }
 .drawer-nav .drawer-arrow {
   margin-left: auto; opacity: 0.4; font-size: 0.9rem;
 }
@@ -1019,15 +1028,15 @@ footer {
       </svg>
     </button>
   </div>
-  <nav class="drawer-nav">
-    <a href="#inicio">Home <span class="drawer-arrow">›</span></a>
+<nav class="drawer-nav">
+    <a href="#inicio">Menú <span class="drawer-arrow">›</span></a>
     <div class="drawer-divider"></div>
     <a href="#servicios">Servicios <span class="drawer-arrow">›</span></a>
-    <a href="#servicios" style="padding-left:32px;font-size:0.88rem;opacity:0.85;">Pasarela multicanal <span class="drawer-arrow">›</span></a>
-    <a href="#servicios" style="padding-left:32px;font-size:0.88rem;opacity:0.85;">Plugins &amp; extensiones para CMS <span class="drawer-arrow">›</span></a>
-    <a href="#servicios" style="padding-left:32px;font-size:0.88rem;opacity:0.85;">Sistema facturación <span class="drawer-arrow">›</span></a>
-    <a href="#servicios" style="padding-left:32px;font-size:0.88rem;opacity:0.85;">Links de cobro <span class="drawer-arrow">›</span></a>
-    <a href="#servicios" style="padding-left:32px;font-size:0.88rem;opacity:0.85;">Lula pagos <span class="drawer-arrow">›</span></a>
+    <a href="#servicios" class="sub-item">Pasarela Multicanal <span class="drawer-arrow">›</span></a>
+    <a href="#servicios" class="sub-item">Plugins &amp; Extensiones para CMS <span class="drawer-arrow">›</span></a>
+    <a href="#facturacion" class="sub-item">Sistema de Facturación <span class="drawer-arrow">›</span></a>
+    <a href="#servicios" class="sub-item">Links de Cobro <span class="drawer-arrow">›</span></a>
+    <a href="#servicios" class="sub-item">Lula Pagos <span class="drawer-arrow">›</span></a>
     <div class="drawer-divider"></div>
     <a href="#nosotros">Sobre Nosotros <span class="drawer-arrow">›</span></a>
   </nav>
@@ -1559,7 +1568,7 @@ footer {
       <div>
         <a class="footer-logo" href="#" style="display:flex;align-items:center;gap:12px;">
           <img src="logo.png" alt="Libélula" style="height:56px;width:auto;opacity:0.9;">
-          libé<span>l</span>ula
+          libélula
         </a>
         <p class="footer-tagline">La primera solución multicanal de pagos y facturación en línea en Bolivia.</p>
         <p class="footer-address">Calacoto Calle 14, entre Av. Los Sauces<br>y Costanera #8215, La Paz, Bolivia<br><br>soporte@todotix.com</p>
@@ -1593,7 +1602,7 @@ footer {
     </div>
 
     <div class="footer-bottom">
-      <span class="footer-copy">© 2010–2025 Libélula SRL — Todos los derechos reservados.</span>
+      <span class="footer-copy">© 2010–2026 Libélula SRL — Todos los derechos reservados.</span>
       <div class="footer-socials">
         <!-- LinkedIn -->
         <a class="social-btn" href="https://www.linkedin.com/company/libelula-todotix/" target="_blank" aria-label="LinkedIn">
