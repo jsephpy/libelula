@@ -159,9 +159,9 @@ nav.scrolled { padding: 12px 56px; }
 }
 .nav-login:hover { background: var(--soft); transform: translateY(-1px); }
 
-/* hamburger */
+/* hamburger — solo visible en móvil */
 .hamburger {
-  display: flex; flex-direction: column; gap: 5px;
+  display: none; flex-direction: column; gap: 5px;
   background: none; border: none; cursor: pointer;
   padding: 6px;
 }
@@ -501,10 +501,25 @@ nav.scrolled { padding: 12px 56px; }
 .svc-card:hover::after { transform: scaleX(1); }
 
 .svc-card.featured {
-  grid-column: 1; grid-row: 1 / 3;
+  grid-column: 1 / 4;
+  grid-row: 1;
   background: linear-gradient(155deg, var(--deep) 0%, #3a2880 100%);
   border-color: transparent;
   box-shadow: 0 32px 72px rgba(30,16,80,0.3);
+  flex-direction: row;
+  gap: 40px;
+  align-items: center;
+  padding: 40px 48px;
+}
+.svc-card.featured .svc-img-placeholder {
+  width: 340px;
+  height: 240px;
+  flex-shrink: 0;
+  margin-bottom: 0;
+  border-radius: 16px;
+}
+.svc-card.featured .svc-content-wrap {
+  flex: 1;
 }
 .svc-card.featured .svc-icon-wrap { background: rgba(255,255,255,0.1); }
 .svc-card.featured .svc-name { color: var(--white); }
@@ -936,11 +951,14 @@ footer {
   nav { padding: 14px 20px; }
   nav.scrolled { padding: 10px 20px; }
   .nav-center { display: none; }
+   .hamburger { display: flex; }
   .hero-inner { grid-template-columns: 1fr; gap: 40px; padding: 40px 20px; }
   .hero-visual { display: none; }
   .services-wrap, .pagos-wrap, .mvv-wrap, .fact-wrap, .eco-wrap, .trust-wrap, .contact-wrap, .cta-section, footer { padding-left: 20px; padding-right: 20px; }
   .services-grid, .pagos-grid, .mvv-grid, .fact-grid, .eco-grid { grid-template-columns: 1fr; gap: 32px; }
   .svc-card.featured { grid-column: 1; grid-row: auto; }
+   .svc-card.featured { flex-direction: column; padding: 28px; }
+  .svc-card.featured .svc-img-placeholder { width: 100%; height: 180px; margin-bottom: 20px; }
   .mvv-main { grid-column: 1; }
   .trust-logos { grid-template-columns: repeat(2, 1fr); }
   .footer-top { grid-template-columns: 1fr; gap: 32px; }
@@ -1140,18 +1158,20 @@ footer {
 
     <div class="services-grid">
       <!-- Featured -->
-      <div class="svc-card featured reveal">
+<div class="svc-card featured reveal">
         <div class="svc-img-placeholder">
           <img src="pasarela.png" alt="Pasarela multicanal">
         </div>
-        <div class="svc-icon-wrap">
-          <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8,21 12,17 16,21"/>
-          </svg>
+        <div class="svc-content-wrap">
+          <div class="svc-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2"/><polyline points="8,21 12,17 16,21"/>
+            </svg>
+          </div>
+          <div class="svc-name">Pasarela multicanal de pagos</div>
+          <div class="svc-desc">Realice cobranzas en línea con nuestra pasarela de pagos. Integre su sistema o tienda online a través de nuestro API basado en RESTful o use nuestro generador de cobranzas en pagos.bo</div>
+          <a href="https://libelula.bo/pasarela-multi-canal/" class="svc-link" target="_blank">Conocer más ›</a>
         </div>
-        <div class="svc-name">Pasarela multicanal de pagos</div>
-        <div class="svc-desc">Realice cobranzas en línea con nuestra pasarela de pagos. Integre su sistema o tienda online a través de nuestro API basado en RESTful o use nuestro generador de cobranzas en pagos.bo</div>
-        <a href="https://libelula.bo/pasarela-multi-canal/" class="svc-link" target="_blank">Conocer más ›</a>
       </div>
 
       <div class="svc-card reveal reveal-delay-1">
